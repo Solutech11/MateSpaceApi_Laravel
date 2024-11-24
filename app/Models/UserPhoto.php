@@ -1,10 +1,18 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class UserPhoto extends Model
 {
     //
+    use HasFactory;
+
+    protected $table = 'tbl_user_Photo';
+
+    protected $fillable = [
+        'user_id',
+        'PhotoUrl',
+    ];
 }
