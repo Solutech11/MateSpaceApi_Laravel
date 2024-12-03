@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class WelcomeMail extends Mailable
+class SendEmailVerify extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -20,6 +20,7 @@ class WelcomeMail extends Mailable
     public function __construct($username)
     {
         $this->username = $username;
+
         //
     }
 
@@ -29,7 +30,7 @@ class WelcomeMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Welcome to MateSpace',
+            subject: 'Send Email Verify',
         );
     }
 
@@ -39,10 +40,7 @@ class WelcomeMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.welcome', // Use a proper Blade view for the email content
-            with: [
-                'username' => $this->username // Pass user data to the view
-            ],
+            view: 'emails.EmailVerify',
         );
     }
 

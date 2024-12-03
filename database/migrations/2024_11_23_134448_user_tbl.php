@@ -20,6 +20,7 @@ return new class extends Migration
             $table->boolean('other_details')->default(false); // Boolean, default is false
             $table->boolean('answer_qa')->default(false); // Boolean, default is false
             $table->boolean('visible')->default(false); // Boolean, default is false
+            $table->boolean('verified')->default(false); // Boolean, default is false
             $table->timestamps(); // Adds created_at and updated_at timestamps
         });
     }

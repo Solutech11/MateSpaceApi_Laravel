@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -16,6 +17,7 @@ return new class extends Migration
             $table->id(); // Auto-incrementing primary key
             $table->integer('user_id')->unique(); // Unique id
             $table->integer('otp');
+            $table->timestamp('expires_at')->nullable(); // Expiration after 5 minutes
             $table->timestamps(); // Adds created_at and updated_at timestamps
         });
     }

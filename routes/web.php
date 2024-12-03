@@ -9,4 +9,9 @@ Route::get('/', function () {
 
 Route::prefix('auth')->controller(Authentication::class)->group(function () {
     Route::post('register','RegisterFunc');
+
+    Route::get('sendotp','SendVerificationOTPFunc');
+
+    Route::post('verify','verifyEmail');
+
 });

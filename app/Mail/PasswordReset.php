@@ -9,10 +9,9 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class WelcomeMail extends Mailable
+class PasswordReset extends Mailable
 {
     use Queueable, SerializesModels;
-
     public $username;
     /**
      * Create a new message instance.
@@ -29,7 +28,7 @@ class WelcomeMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Welcome to MateSpace',
+            subject: 'Password Reset Successfully',
         );
     }
 
@@ -39,10 +38,7 @@ class WelcomeMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.welcome', // Use a proper Blade view for the email content
-            with: [
-                'username' => $this->username // Pass user data to the view
-            ],
+            view: 'emails.passwordResetSuccess',
         );
     }
 
